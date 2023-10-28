@@ -1,15 +1,14 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: ingress-nginx
   namespace: flux-system
 spec:
-  chart:
-    chart: ingress-nginx
-    sourceRef:
-      kind: HelmRepository
-      name: ingress-nginx
-    version: '1.9.4'
-  interval: 1m
   releaseName: ingress-nginx
   targetNamespace: ingress-nginx
+  chart: ingress-nginx
+  sourceRef:
+    kind: HelmRepository
+    name: ingress-nginx
+  version: '4.8.3'
+  
