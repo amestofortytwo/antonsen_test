@@ -15,4 +15,4 @@ spec:
   releaseName: argocd
   targetNamespace: argocd
     values:
-    installCRDs: true
+    crds.install: true
