@@ -14,5 +14,3 @@ spec:
   interval: 1h0s
   releaseName: argocd
   targetNamespace: argocd
-    values:
-    crds.install: true
