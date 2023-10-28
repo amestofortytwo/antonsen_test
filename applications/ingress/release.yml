@@ -4,10 +4,13 @@ metadata:
   name: ingress-nginx
   namespace: flux-system
 spec:
+  chart:
+    spec:
+      chart: ingress-nginx
+      sourceRef:
+        kind: HelmRepository
+        name: ingress-nginx
+      version: '4.8.3'
+  interval: 1h0s
   releaseName: ingress-nginx
   targetNamespace: ingress-nginx
-  chart: ingress-nginx
-  sourceRef:
-    kind: HelmRepository
-    name: ingress-nginx
-  version: '4.8.3'
