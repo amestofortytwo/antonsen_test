@@ -10,6 +10,6 @@ spec:
         kind: HelmRepository
         name: kube-prometheus-stack
       version: '52.1.0'
-  interval: 1h0s
+  interval: 2m
   releaseName: monitoring
   targetNamespace: monitoring
