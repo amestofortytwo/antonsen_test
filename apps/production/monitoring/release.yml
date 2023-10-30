@@ -12,3 +12,4 @@ spec:
       version: '52.1.0'
   interval: 1h0s
   releaseName: monitoring
+  targetNamespace: monitoring
