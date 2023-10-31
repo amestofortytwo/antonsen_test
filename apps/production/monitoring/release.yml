@@ -14,3 +14,9 @@ spec:
   interval: 2m
   releaseName: monitoring
   targetNamespace: monitoring
+  values:
+    grafana:
+      service:
+        type: LoadBalancer
+      ingress:
+        enabled: false
