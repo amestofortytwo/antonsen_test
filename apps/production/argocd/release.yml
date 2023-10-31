@@ -20,7 +20,7 @@ spec:
         type: ClusterIP
       ingress:
         enabled: true
-        ingressClassName: nginx
+        ingressClassName: "nginx"
         hosts:
           - argocd.20.76.81.125.nip.io
         paths:
