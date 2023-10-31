@@ -25,3 +25,6 @@ spec:
           - argocd.20.76.81.125.nip.io
         paths:
           - /
+        tls:
+          - secretName: argocd-server-tls
+            hosts: argocd.20.76.81.125.nip.io
