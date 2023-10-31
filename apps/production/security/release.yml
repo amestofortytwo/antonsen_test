@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: falcosecurity
+      chart: falco
       sourceRef:
         kind: HelmRepository
         name: falcosecurity
