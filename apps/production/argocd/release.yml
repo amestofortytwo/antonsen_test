@@ -17,11 +17,6 @@ spec:
   values:
     server:
       service:
-        type: ClusterIP
+        type: LoadBalancer
       ingress:
-        enabled: true
-        ingressClassName: "nginx"
-        hosts:
-          - 20.76.81.125.nip.io
-        paths:
-          - /
+        enabled: false
