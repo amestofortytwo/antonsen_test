@@ -4,6 +4,7 @@ kind: Kustomization
 # Generate a ConfigMap with the .nip.io suffix
 configMapGenerator:
 - name: nip-io-suffix
+  namespace: argocd
   literals:
   - suffix=.nip.io
   options:
