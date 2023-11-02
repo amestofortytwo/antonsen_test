@@ -6,6 +6,8 @@ configMapGenerator:
 - name: nip-io-suffix
   literals:
   - suffix=.nip.io
+  options:
+    disableNameSuffixHash: true
 
 # Replace the Ingress host with the IP and .nip.io suffix
 replacements:
@@ -18,8 +20,8 @@ replacements:
       name: ingress-nginx-controller
       namespace: ingress-nginx
       kind: Service
-    options:
-      pattern: $(Service.status.loadBalancer.ingress[0].ip)$(suffix)
+    fieldPaths:
+    - status.loadBalancer.ingress[0].ip
   - select:
       kind: Ingress
       name: argocd-server
