@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Generate a ConfigMap with the .nip.io suffix
+configMapGenerator:
+- name: nip-io-suffix
+  literals:
+  - suffix=.nip.io
+
+# Replace the Ingress host with the IP and .nip.io suffix
+replacements:
+- source:
+    kind: ConfigMap
+    name: nip-io-suffix
+    fieldPath: data.suffix
+  targets:
+  - select:
+      name: ingress-nginx-controller
+      namespace: ingress-nginx
+      kind: Service
+    options:
+      pattern: $(Service.status.loadBalancer.ingress[0].ip)$(suffix)
+  - select:
+      kind: Ingress
+      name: argocd-server
+      namespace: argocd
+    fieldPaths:
+    - spec.rules[0].host

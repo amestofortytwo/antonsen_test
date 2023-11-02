@@ -22,6 +22,6 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         hosts:
-          - 1.1.1.1.nip.io
+          - $(INGRESS_HOSTNAME_HOST)
         paths:
           - /argocd
