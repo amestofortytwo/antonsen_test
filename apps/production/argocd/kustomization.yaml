@@ -15,6 +15,7 @@ replacements:
 - source:
     kind: ConfigMap
     name: nip-io-suffix
+    namespace: argocd
     fieldPath: data.suffix
   targets:
   - select:
