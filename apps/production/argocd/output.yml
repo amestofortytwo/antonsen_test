@@ -1,6 +1,0 @@
-apiVersion: v1
-data:
-  suffix: .nip.io
-kind: ConfigMap
-metadata:
-  name: nip-io-suffix
