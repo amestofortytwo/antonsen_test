@@ -16,5 +16,7 @@ spec:
       interval: 10m
   values:
     installCRDs: true
+    networkPolicy:
+      enabled: true
   releaseName: cert-manager
   targetNamespace: cert-manager

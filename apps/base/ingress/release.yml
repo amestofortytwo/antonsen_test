@@ -14,3 +14,10 @@ spec:
   interval: 1h0s
   releaseName: ingress-nginx
   targetNamespace: ingress-nginx
+  values:
+    controller:
+      admissionWebhooks:
+        networkPolicy:
+          enabled: true
+      networkPolicy:
+        enabled: true
