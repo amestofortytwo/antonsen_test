@@ -15,9 +15,10 @@ spec:
   releaseName: argocd
   targetNamespace: argocd
   values:
-    networkPolicy:
-      create: true
-      defaultDenyIngress: true
+    global:
+      networkPolicy:
+        create: true
+        defaultDenyIngress: true
     server:
       service:
         type: ClusterIP
