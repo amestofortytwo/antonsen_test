@@ -16,7 +16,7 @@ spec:
   targetNamespace: argocd
   values:
     networkPolicy:
-      enabled: true
+      create: true
     server:
       service:
         type: ClusterIP
