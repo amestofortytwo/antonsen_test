@@ -1,3 +1,15 @@
+# Default deny for default namespace
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: default
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+---
 # Default deny for argocd namespace
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -46,14 +58,3 @@ spec:
   - Ingress
   - Egress
 ---
-# Default deny for default namespace
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: default-deny-all
-  namespace: default
-spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-  - Egress
