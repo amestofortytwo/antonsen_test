@@ -46,6 +46,18 @@ spec:
         - name:  windows-exporter-config
           mountPath: /config.yml
           subPath: config.yml
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 9182
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 9182
+          initialDelaySeconds: 15
+          periodSeconds: 20
       tolerations:
       - key: "os"
         operator: "Equal"
@@ -57,6 +69,7 @@ spec:
       - name: windows-exporter-config
         configMap:
           name: windows-exporter-config
+
 ---
 
 kind: ConfigMap
@@ -68,8 +81,20 @@ metadata:
     app: windows-exporter
 data:
   config.yml: |
+    # Note this is not an exhaustive list of all configuration values
     collectors:
-      enabled: '[defaults],container'
+      enabled: cpu,cs,logical_disk,net,os,service,system,textfile
     collector:
       service:
-        services-where: "Name='containerd' or Name='kubelet'"
+        services-where: Name='windows_exporter'
+      scheduled_task:
+        include: /Microsoft/.+
+    log:
+      level: debug
+    scrape:
+      timeout-margin: 0.5
+    telemetry:
+      path: /metrics
+      max-requests: 5
+    web:
+      listen-address: ":9182"
