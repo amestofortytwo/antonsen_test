@@ -52,7 +52,7 @@ data:
     prometheuscollectorhealth = "30s"
     podannotations = "30s"
   debug-mode: |-
-    enabled = false
+    enabled = true
 metadata:
   name: ama-metrics-settings-configmap
   namespace: kube-system
